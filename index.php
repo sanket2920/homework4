@@ -17,6 +17,11 @@
 			$this->html .= htmlTags::headingTwo("String Replace Demo");
 			$this->html .= strings::stringReplace('-','/',$date);
 			$this->html .= htmlTags::horizontalRule();
+		
+			$this->html .= htmlTags::headingTwo("String Comparison Demo");
+			$this->html .= strings::stringCompare($date,$tar);
+			$this->html .= htmlTags::horizontalRule();
+									
 		}
 		public function __destruct() {
 			print($this->html);
@@ -26,6 +31,15 @@
 	class strings {
 		static public function stringReplace($src,$target,$str){
 			return str_replace($src,$target,$str);
+		}
+		static public function stringCompare($string1,$string2){
+			if(strcmp($string1,$string2)==0){
+				return "Oops";
+			}else if(strcmp($string1,$string2)<0) {
+				return "Future";
+			}else {
+				return "Past";
+			}
 		}
 	}
 	class htmlTags
