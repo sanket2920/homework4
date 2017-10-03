@@ -26,6 +26,10 @@
 			$this->html .= htmlTags::headingTwo("String Word Count Demo");
 			$this->html .= strings::stringWordcount($date);
 			$this->html .= htmlTags::horizontalRule();
+			
+			$this->html .= htmlTags::headingTwo("String Length Demo");
+			$this->html .= strings::stringLength($date);
+			$this->html .= htmlTags::horizontalRule();
 
 		}
 		public function __destruct() {
@@ -48,7 +52,12 @@
 			}
 			static public function stringWordcount($string1){
 				 	return str_word_count($string1);
-				}
+			}
+
+			static public function stringLength($string1){
+				 	return strlen($string1);
+			}
+
 		}
 	class htmlTags
 	{
