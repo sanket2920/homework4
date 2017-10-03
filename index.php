@@ -34,6 +34,10 @@
 			$this->html .= htmlTags::headingTwo("String ASCII Value Demo");
 			$this->html .= strings::stringASCII('2');
 			$this->html .= htmlTags::horizontalRule();
+			
+			$this->html .= htmlTags::headingTwo("String Last two characters : ");
+			$this->html .= strings::stringCharacter($date,8);
+			$this->html .= htmlTags::horizontalRule();
 
 		}
 		public function __destruct() {
@@ -65,6 +69,11 @@
 			static public function stringASCII($string1){
 				 	return ord($string1);
 			}
+
+			static public function stringCharacter($string1,$value){
+					return substr($string1,$value);
+			}
+
 		}
 	class htmlTags
 	{
