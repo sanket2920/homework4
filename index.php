@@ -30,6 +30,10 @@
 			$this->html .= htmlTags::headingTwo("String Length Demo");
 			$this->html .= strings::stringLength($date);
 			$this->html .= htmlTags::horizontalRule();
+			
+			$this->html .= htmlTags::headingTwo("String ASCII Value Demo");
+			$this->html .= strings::stringASCII('2');
+			$this->html .= htmlTags::horizontalRule();
 
 		}
 		public function __destruct() {
@@ -57,7 +61,10 @@
 			static public function stringLength($string1){
 				 	return strlen($string1);
 			}
-
+			
+			static public function stringASCII($string1){
+				 	return ord($string1);
+			}
 		}
 	class htmlTags
 	{
