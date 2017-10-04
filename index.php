@@ -43,7 +43,10 @@
 			echo strings::stringExplode("/",$date);
 			echo htmlTags::horizontalRule();
 
-			
+			echo htmlTags::headingTwo("leap year demo");
+			echo arrays::arrayLeap($year);
+			echo htmlTags::horizontalRule();
+
 		}
 		public function __destruct() {
 			print($this->html);
@@ -58,7 +61,7 @@
 			static public function stringCompare($string1,$string2){
 				if(strcmp($string1,$string2)==0){
 					return "Oops";
-				}else if(strcmp($string1,$string2)<0) {
+				}else if(strcmp($string1,$string2)>0) {
 					return "Future";
 				}else {
 					return "Past";
@@ -84,9 +87,29 @@
 				 $arr= explode($value,$string1);
 
 				 foreach($arr as $a){
-					echo $a."\r";
+					echo $a."</br>";
 				}
-			}				
+			}	
+		}
+	class arrays {
+		static public function arrayLeap($years){
+			foreach($years as $year){
+				arrays::checkLeapYear($year);
+			}
+		}
+		
+		static public function checkLeapYear($year) {
+			$val = (($year%4==0)and($year%100!=0)or($year%400==0));
+
+			switch($val) {
+				case 1 : 
+					echo ''.$year.' is a leap year'."</br>";
+					break;
+				default : 
+					echo ''.$year.' is not a leap year'."</br>";
+					break;
+				}
+			}
 		}
 	class htmlTags
 	{
