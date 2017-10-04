@@ -13,32 +13,37 @@
 			echo "The value of \$year: ";
 			print_r($year);
 
-			$this->html.=htmlTags::horizontalRule();
+			echo htmlTags::horizontalRule();
 		
-			$this->html .= htmlTags::headingTwo("String Replace Demo");
-			$this->html .= strings::stringReplace('-','/',$date);
-			$this->html .= htmlTags::horizontalRule();
+			echo htmlTags::headingTwo("String Replace Demo");
+			echo strings::stringReplace('-','/',$date);
+			echo htmlTags::horizontalRule();
 		
-			$this->html .= htmlTags::headingTwo("String Comparison Demo");
-			$this->html .= strings::stringCompare($date,$tar);
-			$this->html .= htmlTags::horizontalRule();
+			echo htmlTags::headingTwo("String Comparison Demo");
+			echo strings::stringCompare($date,$tar);
+			echo htmlTags::horizontalRule();
 			
-			$this->html .= htmlTags::headingTwo("String Word Count Demo");
-			$this->html .= strings::stringWordcount($date);
-			$this->html .= htmlTags::horizontalRule();
+			echo htmlTags::headingTwo("String Word Count Demo");
+			echo strings::stringWordcount($date);
+			echo htmlTags::horizontalRule();
 			
-			$this->html .= htmlTags::headingTwo("String Length Demo");
-			$this->html .= strings::stringLength($date);
-			$this->html .= htmlTags::horizontalRule();
+			echo htmlTags::headingTwo("String Length Demo");
+			echo strings::stringLength($date);
+			echo htmlTags::horizontalRule();
 			
-			$this->html .= htmlTags::headingTwo("String ASCII Value Demo");
-			$this->html .= strings::stringASCII('2');
-			$this->html .= htmlTags::horizontalRule();
+			echo htmlTags::headingTwo("String ASCII Value Demo");
+			echo strings::stringASCII('2');
+			echo htmlTags::horizontalRule();
 			
-			$this->html .= htmlTags::headingTwo("String Last two characters : ");
-			$this->html .= strings::stringCharacter($date,8);
-			$this->html .= htmlTags::horizontalRule();
+			echo htmlTags::headingTwo("String Last two characters : ");
+			echo strings::stringCharacter($date,8);
+			echo htmlTags::horizontalRule();
+			
+			echo htmlTags::headingTwo("String into Array Conversion demo:");
+			echo strings::stringExplode("/",$date);
+			echo htmlTags::horizontalRule();
 
+			
 		}
 		public function __destruct() {
 			print($this->html);
@@ -48,7 +53,8 @@
 		class strings {
   			static public function stringReplace($src,$target,$str){
 		  		return str_replace($src,$target,$str);
-				}
+			}
+
 			static public function stringCompare($string1,$string2){
 				if(strcmp($string1,$string2)==0){
 					return "Oops";
@@ -59,21 +65,28 @@
 				}
 			}
 			static public function stringWordcount($string1){
-				 	return str_word_count($string1);
+				 return str_word_count($string1);
 			}
 
 			static public function stringLength($string1){
-				 	return strlen($string1);
+				 return strlen($string1);
 			}
 			
 			static public function stringASCII($string1){
-				 	return ord($string1);
+				 return ord($string1);
 			}
 
 			static public function stringCharacter($string1,$value){
-					return substr($string1,$value);
+				return substr($string1,$value);
 			}
+			
+			static public function stringExplode($value,$string1){
+				 $arr= explode($value,$string1);
 
+				 foreach($arr as $a){
+					echo $a."\r";
+				}
+			}				
 		}
 	class htmlTags
 	{
@@ -88,4 +101,3 @@
 		}
 	}		
 ?>
-
